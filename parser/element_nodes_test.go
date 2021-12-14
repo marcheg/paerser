@@ -483,6 +483,15 @@ func TestEncodeToNode(t *testing.T) {
 			},
 		},
 		{
+			desc:    "slice of string with commans",
+			element: struct{ Bar []string }{Bar: []string{"huu,hee", "hii,haa,ho,ho"}},
+			expected: expected{
+				node: &Node{Name: "traefik", Children: []*Node{
+					{Name: "Bar", FieldName: "Bar", Value: "huu|||hee, hii|||haa|||ho|||ho"},
+				}},
+			},
+		},
+		{
 			desc:    "slice of int",
 			element: struct{ Bar []int }{Bar: []int{4, 2, 3}},
 			expected: expected{

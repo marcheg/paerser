@@ -10,6 +10,9 @@ import (
 	"github.com/traefik/paerser/types"
 )
 
+// I need to preserve ',' in slices with strings. Before concatenaring them and expanding them, lets pre-process/post-process them
+const CommaReplacement = "|||"
+
 type initializer interface {
 	SetDefaults()
 }
@@ -149,6 +152,8 @@ func (f filler) setSlice(field reflect.Value, node *Node) error {
 
 		switch field.Type().Elem().Kind() {
 		case reflect.String:
+			// lets see whether there was some replacement  - restore ','
+			value = strings.ReplaceAll(value, CommaReplacement, ",")
 			field.Index(i).SetString(value)
 		case reflect.Int:
 			val, err := strconv.ParseInt(value, 10, 64)

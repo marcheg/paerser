@@ -67,6 +67,10 @@ func decodeRaw(node *parser.Node, vData reflect.Value, filters ...string) error 
 				case reflect.Bool:
 					fallthrough
 				case reflect.String:
+					// if the string contains commas, use the workaround
+					if item.Kind() == reflect.String {
+						item.SetString(strings.ReplaceAll(item.String(), ",", parser.CommaReplacement))
+					}
 					fallthrough
 				case reflect.Map:
 					fallthrough

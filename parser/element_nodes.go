@@ -174,7 +174,9 @@ func (e encoderToNode) setSliceValue(node *Node, rValue reflect.Value) error {
 
 		switch eValue.Kind() {
 		case reflect.String:
-			values = append(values, eValue.String())
+			// if the value contains ',', take care
+			newValue := strings.ReplaceAll(eValue.String(), ",", CommaReplacement)
+			values = append(values, newValue)
 		case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64:
 			values = append(values, strconv.FormatInt(eValue.Int(), 10))
 		case reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64:
