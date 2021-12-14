@@ -3,10 +3,10 @@ package env
 import (
 	"testing"
 
-	"github.com/marcheg/paerser/generator"
-	"github.com/marcheg/paerser/parser"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"github.com/traefik/paerser/generator"
+	"github.com/traefik/paerser/parser"
 )
 
 func TestDecode(t *testing.T) {

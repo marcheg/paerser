@@ -4,7 +4,7 @@ package generator
 import (
 	"reflect"
 
-	"github.com/marcheg/paerser/parser"
+	"github.com/traefik/paerser/parser"
 )
 
 type initializer interface {

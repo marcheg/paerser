@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/marcheg/paerser/parser"
+	"github.com/traefik/paerser/parser"
 )
 
 // FindPrefixedEnvVars finds prefixed environment variables.

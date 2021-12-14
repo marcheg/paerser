@@ -3,7 +3,7 @@ package cli
 import (
 	"fmt"
 
-	"github.com/marcheg/paerser/flag"
+	"github.com/traefik/paerser/flag"
 )
 
 // FlagLoader loads configuration from flags.

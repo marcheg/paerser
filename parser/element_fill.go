@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/marcheg/paerser/types"
+	"github.com/traefik/paerser/types"
 )
 
 // I need to preserve ',' in slices with strings. Before concatenaring them and expanding them, lets pre-process/post-process them

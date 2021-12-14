@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/marcheg/paerser/types"
+	"github.com/traefik/paerser/types"
 )
 
 const defaultPtrValue = "false"

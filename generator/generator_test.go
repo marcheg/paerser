@@ -3,8 +3,8 @@ package generator
 import (
 	"testing"
 
-	"github.com/marcheg/paerser/parser"
 	"github.com/stretchr/testify/assert"
+	"github.com/traefik/paerser/parser"
 )
 
 func TestGenerate(t *testing.T) {

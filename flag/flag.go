@@ -2,7 +2,7 @@
 package flag
 
 import (
-	"github.com/marcheg/paerser/parser"
+	"github.com/traefik/paerser/parser"
 )
 
 // Decode decodes the given flag arguments into the given element.

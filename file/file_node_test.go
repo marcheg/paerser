@@ -3,9 +3,9 @@ package file
 import (
 	"testing"
 
-	"github.com/marcheg/paerser/parser"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"github.com/traefik/paerser/parser"
 )
 
 func Test_getRootFieldNames(t *testing.T) {

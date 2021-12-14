@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/marcheg/paerser/parser"
+	"github.com/traefik/paerser/parser"
 )
 
 func decodeRawToNode(data map[string]interface{}, filters ...string) (*parser.Node, error) {
