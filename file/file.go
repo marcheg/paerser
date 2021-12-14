@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	"github.com/BurntSushi/toml"
-	"github.com/traefik/paerser/parser"
+	"github.com/marcheg/paerser/parser"
 	"gopkg.in/yaml.v2"
 )
 

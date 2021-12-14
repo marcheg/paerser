@@ -4,8 +4,8 @@ import (
 	"reflect"
 	"testing"
 
+	"github.com/marcheg/paerser/parser"
 	"github.com/stretchr/testify/assert"
-	"github.com/traefik/paerser/parser"
 )
 
 func Test_getFlagTypes(t *testing.T) {
