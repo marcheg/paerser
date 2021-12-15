@@ -67,9 +67,10 @@ func decodeRaw(node *parser.Node, vData reflect.Value, filters ...string) error 
 				case reflect.Bool:
 					fallthrough
 				case reflect.String:
-					// if the string contains commas, use the workaround
+					// if the string contains commas, use the workaround (usually the type is reflect.Interface below)
 					if item.Kind() == reflect.String {
-						item.SetString(strings.ReplaceAll(item.String(), ",", parser.CommaReplacement))
+						newValue := strings.ReplaceAll(item.String(), ",", parser.CommaReplacement)
+						item.SetString(newValue)
 					}
 					fallthrough
 				case reflect.Map:
@@ -87,11 +88,18 @@ func decodeRaw(node *parser.Node, vData reflect.Value, filters ...string) error 
 							return err
 						}
 					} else {
-						val, err := getSimpleValue(sValue)
-						if err != nil {
-							return err
+						// override String type here - we want comma support only in []string, not in every string
+						if sValue.Kind() == reflect.String {
+							newValue := strings.ReplaceAll(sValue.String(), ",", parser.CommaReplacement)
+							values = append(values, newValue)
+						} else {
+							// default handling
+							val, err := getSimpleValue(sValue)
+							if err != nil {
+								return err
+							}
+							values = append(values, val)
 						}
-						values = append(values, val)
 					}
 				default:
 					return fmt.Errorf("field %s uses unsupported slice type: %s", child.Name, item.Kind().String())

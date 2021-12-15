@@ -487,7 +487,7 @@ func TestEncodeToNode(t *testing.T) {
 			element: struct{ Bar []string }{Bar: []string{"huu,hee", "hii,haa,ho,ho"}},
 			expected: expected{
 				node: &Node{Name: "traefik", Children: []*Node{
-					{Name: "Bar", FieldName: "Bar", Value: "huu|||hee, hii|||haa|||ho|||ho"},
+					{Name: "Bar", FieldName: "Bar", Value: "huu,hee, hii,haa,ho,ho"},
 				}},
 			},
 		},
